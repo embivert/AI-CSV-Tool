@@ -70,14 +70,14 @@ if uploaded_file:
 
                 if unique_vals <= 20 and unique_vals > 1:  # only filter if unique count is small
                     options = df[col].unique().tolist()
-                    select_all = "Select All"
+                    # select_all = "Select All"
 
-                    selected = st.multiselect(f"Filter by {col}", [select_all] + options, default=[select_all])
+                    selected = st.multiselect(f"Filter by {col}",  options, default=options[0])
 
-                    if select_all in selected:
-                        selected = options
-                    else:
-                        filters[col] = selected
+                    # if select_all in selected:
+                    #     selected = options
+                    # else:
+                    filters[col] = selected
 
             # Optional: check if there’s a datetime-like column
             for col in df.columns:
